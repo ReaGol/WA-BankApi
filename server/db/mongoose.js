@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv';
 dotenv.config();
 
-const URL = `mongodb+srv://ReutGol:kfCpmv6ryq3pxnrj@projects.oe9kwle.mongodb.net/?retryWrites=true&w=majority`;
+const URL = MONGO_URI;
 mongoose.set("strictQuery", false);
 
 mongoose.connect(URL, (err, mongoDbInstance) => {

@@ -1,13 +1,11 @@
 import { Router } from "express";
-import { User } from "../models/user.model.js";
+import { createUser, deleteUser, editUser, getUsers } from "../controllers/user.controller";
 export const userRouter = Router();
 
-userRouter.get("/", async (req, res) => {
-  const users = await User.find({});
-  res.send(users);
-});
+userRouter.get("/", getUsers);
 
-userRouter.post("/", async (res, req) => {
-    const user = await User.create(req.body)
-  res.send("post");
-});
+userRouter.post("/", createUser); 
+
+userRouter.put("/:id", editUser);
+
+userRouter.delete("/:id", deleteUser);
