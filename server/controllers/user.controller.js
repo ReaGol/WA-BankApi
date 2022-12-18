@@ -1,9 +1,9 @@
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 
 export const getUsers = async (req, res) => {
   const users = await User.find({});
-  if (users.length == 0) {
-    return "Not found";
+  if (!users) {
+    res.send('not found');
   } else {
     res.status(200).send(users);
   }
@@ -11,7 +11,7 @@ export const getUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const user = await User.findOne({ ObjectId: req.params.id });
+    const user = await User.findOne({ _id: req.params.id });
     console.log(user);
     if(!user){
       return res.status(404).send("User not found")
@@ -25,8 +25,8 @@ export const getUser = async (req, res) => {
 export const createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
-    res.status(200).send("Added user");
-    return user;
+    res.status(200).send(user);
+  
   } catch (error) {
     throw error;
   }

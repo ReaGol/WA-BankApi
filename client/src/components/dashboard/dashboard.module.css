@@ -1,0 +1,33 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.dashboardContent {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+    margin-top: 300px;
+    text-align: center;
+}
+
+.dashboardContent > div {
+    background-color: lightgrey;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gainsboro;
+    font-size: 2em;
+
+}
+
+.dashboardContent > div:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+
